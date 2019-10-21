@@ -118,6 +118,15 @@ public class Game
             case QUIT:
                 wantToQuit = quit(command);
                 break;
+            
+            case LOOK:
+                look();
+                break;
+                
+            //8.15
+            case EAT:
+                System.out.println("Congrats you ate something!!!");
+                
         }
         return wantToQuit;
     }
@@ -179,4 +188,14 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+    
+    //8.14
+    /**
+     * Look method 
+     */
+    private void look()
+    {
+        System.out.println(currentRoom.getLongDescription());
+    } 
+    
 }
