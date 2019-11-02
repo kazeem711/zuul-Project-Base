@@ -1,33 +1,38 @@
-
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.HashMap;
 /**
  * Write a description of class Items here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Kazeem Azeez
+ * @version 2019.10.26
  */
 public class Items
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    // instance variables
+    private String describe;
+    private int weight;
+    private ArrayList<Items> items;
+    
     /**
      * Constructor for objects of class Items
+     * @param describe
+     * @param weight
      */
-    public Items()
-    {
-        // initialise instance variables
-        x = 0;
+    public Items(String describe, int weight){
+        //initialize instance variables 
+        describe = describe;
+        weight = weight;
+        this.items = new ArrayList<Items>();
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Return description of the item
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public String getShortDescription(){
+        return describe;
     }
+    
+    
 }
