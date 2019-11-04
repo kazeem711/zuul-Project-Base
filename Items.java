@@ -9,20 +9,23 @@ import java.util.HashMap;
  * @version 2019.10.26
  */
 public class Items{   // item desc, weight + hashmap to store set of items with assoc keys
-    private String idescription;
-    private int iweight;
-    private String iname;
+    private String description;
+    private int weight;
+    private String name;
     private HashMap<String, Items> items;
    
     /**
      * Constructor for objects of class Item
+     * @param name
+     * @param description
+     * @param weight
      */
-    public Items(String iname, String idescription, int iweight){
+    public Items(String name, String description, int weight){
         // initialise instance variables
-        this.iname = iname;
-        this.idescription = idescription;
-        this.iweight = iweight;
-        items=new HashMap<String, Items>();
+        this.name = name;
+        this.description = description;
+        this.weight = weight;
+        items = new HashMap<String, Items>();
 
   
     }
@@ -36,12 +39,13 @@ public class Items{   // item desc, weight + hashmap to store set of items with 
     {
         // put your code here
         String iString = "In this area: ";
-        iString = iString + this.idescription + "\nItem weight: " + this.iweight;
+        iString = iString + this.description + "\nItem weight: " + this.weight;
         return iString;
     }
     
     /**
     *add items to items HashMap
+    *
     */
     private void addItems()
     {
