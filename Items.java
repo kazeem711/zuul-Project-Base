@@ -9,32 +9,53 @@ import java.util.HashMap;
  * @version 2019.10.26
  */
 public class Items
-{
-    // instance variables
-    private String describe;
-    private int weight;
-    private HashMap<String,Items> items;
-    
+{   // item desc, weight + hashmap to store set of items with assoc keys
+    private String idescription;
+    private int iweight;
+    private String iname;
+    private HashMap<String, Items> items;
+   
     /**
-     * Constructor for objects of class Items
-     * @param describe
-     * @param weight
+     * Constructor for objects of class Item
      */
-    public Items(String describe, int weight){
-        //initialize instance variables 
-        describe = describe;
-        weight = weight;
-        this.items = new ArrayList<Items>();
+    public Items(String iname, String idescription, int iweight)
+    {
+        // initialise instance variables
+        this.iname = iname;
+        this.idescription = idescription;
+        this.iweight = iweight;
+        items=new HashMap<String, Items>();
     }
-    
+   
     /**
-     * Return description of the item
+     * Get the item description.  
      */
-    public String getShortDescription(){
-        return describe;
+    public String getIdescription()
+    {
+        // put your code here
+        String iString = "In this area: ";
+        iString = iString + this.idescription + "\nItem weight: " + this.iweight;
+        return iString;
     }
-    
-    
-    P
-    
+    /**
+    *add items to items HashMap
+    */
+    private void addItems()
+    {
+        items.put("flier", new Items("flier", "there is a flier for a club on the floor",
+                        0));
+        items.put("baccy", new Items("baccy", "there is a pouch of tobacco on\n" +
+            "the table, your friends say you may help yourself if you can find\n" +
+            "rolling papers, filter tips and a lighter.",2));
+        items.put("skins", new Items("skins", "there is a packet of rolling papers on the bar.", 1));
+        items.put("filters", new Items("filters", "there are some filter tips lying on the side", 1));
+        items.put("lighter", new Items("lighter", "there is a lighter on the window cill", 1));
+        items.put("phone", new Items("phone", "you spy a smartphone in one of the pockets",5));
+        items.put("bag", new Items("bag", "a woman has left her handbag\n" + "on a table", 10));
+        items.put("coat", new Items("coat", "there is a beautiful coat that has been left\n" +
+                             "on a barstoll", 6));
+        items.put("jukebox", new Items("jukebox", "the jukebox plays out some big band music",   1500));      
+   
+ 
+    }
 }
