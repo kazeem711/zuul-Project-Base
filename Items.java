@@ -13,7 +13,7 @@ public class Items
     // instance variables
     private String describe;
     private int weight;
-    private ArrayList<Items> items;
+    private HashMap<String,Items> items;
     
     /**
      * Constructor for objects of class Items
@@ -34,5 +34,7 @@ public class Items
         return describe;
     }
     
+    
+    P
     
 }
