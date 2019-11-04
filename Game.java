@@ -1,3 +1,6 @@
+
+import java.util.*;
+
 /**
  *  This class is the main class of the "World of Zuul" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
@@ -24,6 +27,7 @@ public class Game
     private Room southExit;
     private Room eastExit;
     private Room westExit;
+    private Stack<Room> roomHistory;  
         
     /**
      * Create the game and initialise its internal map.
@@ -32,6 +36,7 @@ public class Game
     {
         createRooms();
         parser = new Parser();
+        roomHistory = new Stack<Room>();
     }
 
     /**
@@ -39,7 +44,7 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room outside, theater, pub, lab, office,  cellar, previousRoom;
       
         // create the rooms
         outside = new Room("outside the main entrance of the university");
@@ -47,22 +52,26 @@ public class Game
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
+        cellar = new Room("in the cellar");
         
         // initialise room exits
         outside.setExit("east", theater);
         outside.setExit("south", lab);
         outside.setExit("west", pub);
-
+        
         theater.setExit("west", outside);
-
+        
         pub.setExit("east", outside);
-
+        
         lab.setExit("north", outside);
         lab.setExit("east", office);
-
+        
         office.setExit("west", lab);
-
-        currentRoom = outside;  // start game outside
+        office.setExit("down", cellar);
+        
+        cellar.setExit("up", office);
+        previousRoom = outside;
+        currentRoom = outside;   // start game outside
     }
 
     /**
@@ -131,6 +140,9 @@ public class Game
             //8.15
             case EAT:
                 System.out.println("Congrats you ate something!!!");
+                
+            case BACK:
+                   goBack();
                 
         }
         return wantToQuit;
@@ -220,6 +232,16 @@ public class Game
         System.out.println(currentRoom.getLongDescription());
     } 
     
-    
+    /**
+     * Go back to the previous room.
+      */
+    private void goBack(){
+         if (roomHistory.empty())
+        {   System.out.println("YOU MUST GO BACK.");
+        } else {
+            currentRoom = roomHistory.pop();
+            System.out.println(currentRoom.getLongDescription());
+        }
+    } 
    
 }
