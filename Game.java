@@ -19,6 +19,11 @@ public class Game
 {
     private Parser parser;
     private Room currentRoom;
+    
+    private Room northExit;
+    private Room southExit;
+    private Room eastExit;
+    private Room westExit;
         
     /**
      * Create the game and initialise its internal map.
@@ -164,6 +169,7 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
+
         
         if(direction.equals("north")){
             nextRoom = currentRoom.getExit("north");
@@ -215,5 +221,5 @@ public class Game
     } 
     
     
-    
+   
 }
