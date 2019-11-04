@@ -20,6 +20,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;        // stores exits of this room.
+    private HashMap<String, Items> items;
 
     /**
      * Create a room described "description". Initially, it has
@@ -31,6 +32,29 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<>();
+        items = new HashMap<String, Items>();
+    }
+    
+    /**
+     * add items to rooms.
+     */
+    public void addItems(String iname, String idescription, int iweight){
+        if(!sameName(iname)) {
+            items.put(iname, new Items(iname, idescription, iweight));
+        }
+        else{
+        System.out.println("Item is already here");
+        }
+   
+    }
+    public boolean sameName(String name){
+        Set<String> keys = items.keySet();
+        for(Iterator<String> i=keys.iterator();i.hasNext();){
+            if(i.next().equals(name)){
+               return true;
+            }
+        }
+        return false;
     }
 
     /**
