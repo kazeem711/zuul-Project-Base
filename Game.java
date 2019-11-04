@@ -146,6 +146,7 @@ public class Game
         System.out.println("Your command words are:");
         parser.showCommands();
     }
+    
 
     /** 
      * Try to go in one direction. If there is an exit, enter the new
@@ -163,6 +164,20 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = currentRoom.getExit(direction);
+        
+        if(direction.equals("north")){
+            nextRoom = currentRoom.getExit("north");
+        }
+        if(direction.equals("east")){
+            nextRoom = currentRoom.getExit("east");
+        }
+        if(direction.equals("south")){
+            nextRoom = currentRoom.getExit("south");
+        }
+        if(direction.equals("west")){
+            nextRoom = currentRoom.getExit("west");
+        }
+        
 
         if (nextRoom == null) {
             System.out.println("There is no door!");
@@ -170,6 +185,7 @@ public class Game
         else {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
+            
         }
     }
 
@@ -197,5 +213,7 @@ public class Game
     {
         System.out.println(currentRoom.getLongDescription());
     } 
+    
+    
     
 }
