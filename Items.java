@@ -8,8 +8,7 @@ import java.util.HashMap;
  * @author Kazeem Azeez
  * @version 2019.10.26
  */
-public class Items
-{   // item desc, weight + hashmap to store set of items with assoc keys
+public class Items{   // item desc, weight + hashmap to store set of items with assoc keys
     private String idescription;
     private int iweight;
     private String iname;
@@ -18,16 +17,19 @@ public class Items
     /**
      * Constructor for objects of class Item
      */
-    public Items(String iname, String idescription, int iweight)
-    {
+    public Items(String iname, String idescription, int iweight){
         // initialise instance variables
         this.iname = iname;
         this.idescription = idescription;
         this.iweight = iweight;
         items=new HashMap<String, Items>();
+
+  
     }
    
+   
     /**
+
      * Get the item description.  
      */
     public String getIdescription()
@@ -37,6 +39,7 @@ public class Items
         iString = iString + this.idescription + "\nItem weight: " + this.iweight;
         return iString;
     }
+    
     /**
     *add items to items HashMap
     */
@@ -58,4 +61,6 @@ public class Items
    
  
     }
+    
+    
 }
