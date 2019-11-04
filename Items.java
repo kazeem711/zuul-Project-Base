@@ -16,9 +16,9 @@ public class Items{   // item desc, weight + hashmap to store set of items with 
    
     /**
      * Constructor for objects of class Item
-     * @param name
-     * @param description
-     * @param weight
+     * @param name the name of item
+     * @param description the decription of an item 
+     * @param weight the weight of an item 
      */
     public Items(String name, String description, int weight){
         // initialise instance variables
@@ -33,9 +33,10 @@ public class Items{   // item desc, weight + hashmap to store set of items with 
    
     /**
 
-     * Get the item description.  
+     * Get the item description. 
+     * @returns a description of the item and area
      */
-    public String getIdescription()
+    public String getDescription()
     {
         // put your code here
         String iString = "In this area: ";
